@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <title>Test Chess Analyzer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<!--    <meta name="description" content="Use this HTML basic website two percentage columns and one larger layout template where the extra stuff is large, and the navigation menu is narrow on the right side and the main content is wide on the left side.">-->
+<!--    <meta name="generator" content="HAPedit 3.1">-->
+<!--    <link rel="canonical" href="https://www.w3docs.com/snippets/html/layout_templates/30.html" />-->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="HTML FlexBox Template -  Two percentage columns and one larger, left content" />
+    <meta property="og:description" content="Use this HTML basic website two percentage columns and one larger layout template where the extra stuff is large, and the navigation menu is narrow on the right side and the main content is wide on the left side." />
+    <meta property="og:image" content="https://www.w3docs.com/build/images/logo-amp.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="192" />
+    <meta property="og:image:height" content="192" />
+    <meta property="og:image:alt" content="W3dcos" />
+
+    <link rel="stylesheet" href="css/chessboard-1.0.0.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script src="js/chessboard-1.0.0.min.js"></script>
+    <script src="js/chess.js"></script>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #292929;
+            font: 90% Roboto, Arial, sans-serif;
+            font-weight: 300;
+        }
+
+        p {
+            padding: 0 10px;
+            line-height: 1.8;
+        }
+
+        ul li {
+            padding-right: 10px;
+            line-height: 1.6;
+        }
+
+        h3 {
+            padding: 5px 20px;
+            margin: 0;
+        }
+
+        div#header {
+            position: relative;
+        }
+
+        div#header h1 {
+            height: 80px;
+            line-height: 80px;
+            margin: 0;
+            padding-left: 10px;
+            background: #e0e0e0;
+            color: #292929;
+        }
+
+        div#header a {
+            position: absolute;
+            right: 0;
+            top: 23px;
+            padding: 10px;
+            color: #006;
+        }
+
+        div#navigation {
+            background: #7cb71c;
+        }
+
+        div#navigation li {
+            list-style: none;
+        }
+
+        div#extra {
+            background: #147FA9;
+        }
+
+        div#footer {
+            background: #42444e;
+            color: #fff;
+        }
+
+        div#footer p {
+            padding: 20px 10px;
+        }
+
+
+        div#wrapper {
+            float: left;
+            width: 30%;
+            margin-left: 100px;
+            margin-bottom: 20px;
+        }
+
+        div#navigation {
+            float: right;
+            width: 62.9%;
+        }
+
+        div#extra {
+            clear: both;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <h1>Test Chess Analyzer</h1>
+    </div>
+    <div id="wrapper">
+        <div id="content">
+            <div id="myBoard" style="width: 400px"></div>
+            <p><strong>Информация о позиции</strong></p>
+                    <label>Status:</label>
+             <div id="status"></div>
+            <label>FEN:</label>
+            <div id="fen"></div>
+            <label>PGN:</label>
+            <div id="pgn"></div>
+        </div>
+    </div>
+    <div id="navigation">
+        <p><strong>Здесь предполагается область анализа шашматного движка с графиком</strong></p>
+    А пока можно просто подвигать фигуры и поставить позицию на доске
+    </div>
+    <div id="extra">
+        <p><strong>Дополнительная информация</strong></p>
+
+        <h3></h3>
+        <ul>
+            <li>Используются бесплатные js-библиотеки chess.js и chessboard.js.</li>
+            <li>......................</li>
+            <li>......................</li>
+            <li>......................</li>
+        </ul>
+    </div>
+    <div id="footer"><p>Footer</p>
+    </div>
+</div>
+<script src="js/mainboard.js"></script>
+<script type="text/javascript">AddFillerLink("content", "navigation", "extra")</script>
+</body>
+</html>
