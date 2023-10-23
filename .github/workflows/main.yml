@@ -20,26 +20,28 @@ jobs:
           user: ${{secrets.SSH_USER}}
           private_key: ${{secrets.SSH_PRIVATE_KEY}}
           command: |
-            cd ${{ secrets.PROJECT_FOLDER }};
+            cd ${{ secrets.WORK_DIR }};
             git checkout main;
             git pull;
-            docker build testchessanalyzer:latest;
+            sudo dockerlogin -u ${{secrets.DOCKERHUB_USER}} -p ${{secrets.DOCKERHUB_PASS}};
+            sudo docker build -t mikhailpastushenko/testchessanalyzer:latest;
+            sudo docker push -t mikhailpastushenko/testchessanalyzer:latest;
             
             
-  deploy:
-    needs: buildDocker
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+#  deploy:
+#    needs: buildDocker
+#    runs-on: ubuntu-latest
+#    steps:
+      # - name: Checkout code
+      #   uses: actions/checkout@v3
       
-      - name: Run build on remote server
-        uses: D3rHase/ssh-command-action@v0.2.2
-        with:
-          host: ${{secrets.SSH_HOST}}
-          user: ${{secrets.SSH_USER}}
-          private_key: ${{secrets.SSH_PRIVATE_KEY}}
-          command: |
-            cd ${{ secrets.PROJECT_FOLDER }};
-            git checkout main;
-            git pull;
+      # - name: Run build on remote server
+      #   uses: D3rHase/ssh-command-action@v0.2.2
+      #   with:
+      #     host: ${{secrets.SSH_HOST}}
+      #     user: ${{secrets.SSH_USER}}
+      #     private_key: ${{secrets.SSH_PRIVATE_KEY}}
+      #     command: |
+      #       cd ${{ secrets.PROJECT_FOLDER }};
+      #       git checkout main;
+      #       git pull;
