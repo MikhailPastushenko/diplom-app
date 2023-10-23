@@ -23,9 +23,9 @@ jobs:
             cd ${{ secrets.WORK_DIR }};
             git checkout main;
             git pull;
-            sudo docker login # -u ${{secrets.DOCKERHUB_USER}} -p ${{secrets.DOCKERHUB_PASS}};
+            sudo docker login; # -u ${{secrets.DOCKERHUB_USER}} -p ${{secrets.DOCKERHUB_PASS}};
             sudo docker build -t mikhailpastushenko/testchessanalyzer:latest .;
-            sudo docker push -t mikhailpastushenko/testchessanalyzer:latest;
+            sudo docker push mikhailpastushenko/testchessanalyzer:latest;
             
             
 #  deploy:
