@@ -24,7 +24,7 @@ jobs:
             git checkout main;
             git pull;
             ls -l;
-            sudo docker login; # -u ${{secrets.DOCKERHUB_USER}} -p ${{secrets.DOCKERHUB_PASS}};
+            sudo docker login;
             sudo docker image list;
             sudo docker build -t mikhailpastushenko/testchessanalyzer:v.1.1 . ;
             sudo docker push mikhailpastushenko/testchessanalyzer:latest;
