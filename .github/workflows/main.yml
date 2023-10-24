@@ -3,7 +3,7 @@ on:
   push:
     tags:
       - 'v*.*'
-    branches: ["main"]
+  #  branches: ["main"]
   # pull_request:
   #   branches: ["main"]
 
@@ -28,9 +28,9 @@ jobs:
             ls -l;
             sudo docker login;
             sudo docker image list;
-            echo ${GITHUB_REF##*/};
-            sudo docker build -t mikhailpastushenko/testchessanalyzer:${GITHUB_REF##*/} . ;
-            sudo docker push mikhailpastushenko/testchessanalyzer:${GITHUB_REF##*/};
+            echo ${{ github.ref_name }};
+            sudo docker build -t mikhailpastushenko/testchessanalyzer:${{ github.ref_name }} . ;
+            sudo docker push mikhailpastushenko/testchessanalyzer:${{ github.ref_name }};
                     
   # deploy:
   #   needs: buildDocker
