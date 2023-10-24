@@ -25,7 +25,6 @@ jobs:
             cd ${{ secrets.WORK_DIR }};
             git checkout main;
             git pull;
-            ls -l;
             echo "TAG " ${{ github.ref_name }};
             sudo docker login;
             sudo docker build -t mikhailpastushenko/testchessanalyzer:${{ github.ref_name }} . ;
