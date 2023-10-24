@@ -1,9 +1,11 @@
 name: "CI/CD"
 on:
   push:
+    tags:
+      - 'v*.*'
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
+  # pull_request:
+  #   branches: ["main"]
 
 jobs:
 
@@ -27,8 +29,8 @@ jobs:
             sudo docker login;
             sudo docker image list;
             echo ${GITHUB_REF##*/};
-            # sudo docker build -t mikhailpastushenko/testchessanalyzer:latest . ;
-            # sudo docker push mikhailpastushenko/testchessanalyzer:latest;
+            sudo docker build -t mikhailpastushenko/testchessanalyzer:${GITHUB_REF##*/} . ;
+            sudo docker push mikhailpastushenko/testchessanalyzer:${GITHUB_REF##*/};
                     
   # deploy:
   #   needs: buildDocker
