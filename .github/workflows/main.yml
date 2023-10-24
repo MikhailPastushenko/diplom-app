@@ -2,7 +2,7 @@ name: "CI/CD"
 on:
   push:
     tags:
-      - 'v*.*'
+      - 'v*.*.*'
   #  branches: ["main"]
   # pull_request:
   #   branches: ["main"]
@@ -26,9 +26,8 @@ jobs:
             git checkout main;
             git pull;
             ls -l;
+            echo "TAG " ${{ github.ref_name }};
             sudo docker login;
-            sudo docker image list;
-            echo ${{ github.ref_name }};
             sudo docker build -t mikhailpastushenko/testchessanalyzer:${{ github.ref_name }} . ;
             sudo docker push mikhailpastushenko/testchessanalyzer:${{ github.ref_name }};
                     
