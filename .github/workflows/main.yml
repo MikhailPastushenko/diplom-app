@@ -45,5 +45,5 @@ jobs:
           private_key: ${{secrets.SSH_SECRET_KEY}}
           command: |
             cd ${{ secrets.QBEC_DIR }};
-            sudo qbec apply default --vm:ext-str image_tag=${{ github.ref_name }} ;
+            sudo qbec apply default --vm:ext-str image_tag=${{ github.ref_name }} --yes ;
 
