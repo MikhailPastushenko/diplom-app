@@ -26,24 +26,25 @@ jobs:
             ls -l;
             sudo docker login;
             sudo docker image list;
-            sudo docker build -t mikhailpastushenko/testchessanalyzer:v.1.1 . ;
-            sudo docker push mikhailpastushenko/testchessanalyzer:latest;
-            
-            
-#  deploy:
-#    needs: buildDocker
-#    runs-on: ubuntu-latest
-#    steps:
-      # - name: Checkout code
-      #   uses: actions/checkout@v3
+            echo ${GITHUB_REF##*/};
+            # sudo docker build -t mikhailpastushenko/testchessanalyzer:latest . ;
+            # sudo docker push mikhailpastushenko/testchessanalyzer:latest;
+                    
+  # deploy:
+  #   needs: buildDocker
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
       
-      # - name: Run build on remote server
-      #   uses: D3rHase/ssh-command-action@v0.2.2
-      #   with:
-      #     host: ${{secrets.SSH_HOST}}
-      #     user: ${{secrets.SSH_USER}}
-      #     private_key: ${{secrets.SSH_PRIVATE_KEY}}
-      #     command: |
-      #       cd ${{ secrets.PROJECT_FOLDER }};
-      #       git checkout main;
-      #       git pull;
+  #     - name: Run build on remote server
+  #       uses: D3rHase/ssh-command-action@v0.2.2
+  #       with:
+  #         host: ${{secrets.SSH_HOST}}
+  #         user: ${{secrets.SSH_USER}}
+  #         private_key: ${{secrets.SSH_PRIVATE_KEY}}
+  #         command: |
+  #           cd ${{ secrets.WORK_DIR }};
+  #           echo ${GITHUB_REF##*/};
+  #           sudo qbec apply default --vm:ext-str image_tag=${GITHUB_REF##*/} ;
+
