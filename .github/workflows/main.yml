@@ -19,7 +19,7 @@ jobs:
           prefix: 'v'
       - name: Version tag only step
         run: |
-          echo $ {{ steps.version.outputs.is_valid }}
+          echo ${{ steps.version.outputs.is_valid }}
     outputs:
       version-valid: $ {{ steps.version.outputs.is_valid }}
 
