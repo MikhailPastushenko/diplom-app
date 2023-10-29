@@ -17,10 +17,9 @@ jobs:
         id: version
         with:
           prefix: 'v'
-      - name: echo
         command: |
           echo $ {{ steps.version.outputs.is_valid }}
-    outputs: 
+    outputs:
       version-valid: $ {{ steps.version.outputs.is_valid }}
 
   buildDocker:
