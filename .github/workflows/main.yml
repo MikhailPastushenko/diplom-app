@@ -8,8 +8,21 @@ on:
   #   branches: ["main"]
 
 jobs:
+  check-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: nowsprinting/check-version-format-action@v3
+        id: version
+        with:
+          prefix: 'v'
+    outputs: 
+      version-valid: $ {{ steps.version.outputs.is_valid }}
 
   buildDocker:
+    needs: check-tag
+    if: ${{ needs.check-tag.outputs.version-valid == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
