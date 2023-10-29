@@ -25,7 +25,7 @@ jobs:
 
   buildDocker:
     runs-on: ubuntu-latest
-    if: needs.check-tag.outputs.version-valid == 'true'
+    needs: check-tag
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
